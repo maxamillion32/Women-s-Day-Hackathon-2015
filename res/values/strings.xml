@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ChallengeMe</string>
+    <string name="title_activity_main_screen">MainScreen</string>
+    <string name="title_activity_choose_challenge_date">Choose Challenge date</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_choose_challenge">Choose Challenge</string>
+    <string name="title_activity_application_adapter">ApplicationAdapter</string>
+    <string name="about_title">about_title</string>
+    <string name="about_desc">about_desc</string>
+    <string name="title_activity_choose_challenge_time">Choose Challenge Time</string>
+    <string name="title_activity_choose_opponent">Choose Your Opponent</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_challenge_notification_screen">Challenge Notification</string>
+    <string name="title_activity_results">Results</string>
+
+</resources>
