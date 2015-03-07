@@ -42,6 +42,7 @@ public class ChooseChallengeTime extends Activity {
 				"Now, whom do you want to challenge?", Toast.LENGTH_SHORT).show();	
 		Intent challengeOpponentPage = new Intent(this, ChooseOpponent.class);
 		Log.v("Main Activity", "Navigating to choose challengeOpponent page");
+		this.finish();
 		startActivity(challengeOpponentPage);
 		}
 }

@@ -37,11 +37,27 @@ public class MainScreen extends Activity {
 		return super.onOptionsItemSelected(item);
 	}
 	
+	public void onProfileClick(View view){
+		Toast.makeText(getApplicationContext(), 
+				"Opening profile details", Toast.LENGTH_SHORT).show();	
+		/*
+		 * To interface with the server db - To fetch points, challenges etc
+		 * Login via FB/Google+
+		 * Access the user details on the server
+		 * Display it in the client device
+		 * 
+		 */
+		Intent profilePage = new Intent(this, MyProfile.class);
+		Log.v("Main Activity", "Navigating to choose profile page");
+		startActivity(profilePage);
+		}
+	
 	public void onYesButtonClick(View view){
 		Toast.makeText(getApplicationContext(), 
 				"Yes I'm ready", Toast.LENGTH_SHORT).show();	
 		Intent challengePage = new Intent(this, ChooseChallenge.class);
 		Log.v("Main Activity", "Navigating to choose challenge page");
+		//this.onPause();
 		startActivity(challengePage);
 		}
 	
@@ -50,4 +66,7 @@ public class MainScreen extends Activity {
 				"No I'm not", Toast.LENGTH_SHORT).show();	
 		Process.killProcess(Process.myPid()); 		
 		}
+	
+	
+	
 }

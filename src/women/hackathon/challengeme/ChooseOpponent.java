@@ -40,8 +40,10 @@ public class ChooseOpponent extends Activity {
 		Toast.makeText(getApplicationContext(), 
 				"Your friend has been challenged. "
 				+ "Will notify you when the challenge is accepted", Toast.LENGTH_SHORT).show();	
-		Intent challengeOpponentPage = new Intent(this, ChooseOpponent.class);
-		Log.v("Main Activity", "Navigating to choose challengeOpponent page");
-		startActivity(challengeOpponentPage);
+		Intent ChallengeNotificationScreenpage = new Intent(this, ChallengeNotificationScreen.class);
+		Log.v("Main Activity", "Navigating to choose ChallengeNotificationScreen page");
+		this.finish();
+		startActivity(ChallengeNotificationScreenpage);
 		}
+	
 }

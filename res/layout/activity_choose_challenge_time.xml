@@ -14,14 +14,14 @@
         android:text="@string/title_activity_choose_challenge_date" />
     
      <ImageButton
-         android:id="@+id/ImageButton_next"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_alignParentBottom="true"
-         android:layout_centerHorizontal="true"
-         android:layout_marginBottom="14dp"
-         android:background="@drawable/next_button"
-         android:onClick="onNextButtonClick"
-         android:src="@drawable/next_button" />
+            android:id="@+id/ImageButton_next_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/next_button"
+            android:onClick="onNextButtonClick"
+            android:src="@drawable/next_button" />
 
 </RelativeLayout>

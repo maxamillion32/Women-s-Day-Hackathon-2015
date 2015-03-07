@@ -7,6 +7,7 @@ import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
 import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -88,9 +89,9 @@ public class ChooseChallenge extends ListActivity {
 		ApplicationInfo app = applist.get(position);
 		Toast.makeText(ChooseChallenge.this,"App clicked on is: "+app.packageName,
 				Toast.LENGTH_LONG).show();
-		super.onResume();
 		Intent timePage = new Intent(this, ChooseChallengeTime.class);
 		Log.v("Main Activity", "Navigating to choose challenge time page");
+		this.finish();
 		startActivity(timePage);
 		
 //		try {

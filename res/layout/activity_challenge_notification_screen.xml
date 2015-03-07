@@ -9,6 +9,15 @@
     android:background="@drawable/challenge_me_waiting"
     tools:context="women.hackathon.challengeme.ChallengeNotificationScreen" >
 
+    
+    <ListView
+        android:id="@+id/listViewGroups"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:dividerHeight="0.1dp"
+        android:divider="#000000" >
+    </ListView>
+    
     <ImageButton
         android:id="@+id/ImageButton_alright"
         android:layout_width="wrap_content"
@@ -19,5 +28,7 @@
         android:background="@drawable/alright_button"
         android:onClick="onAlrightButtonClick"
         android:src="@drawable/alright_button" />
+    
+    
 
 </RelativeLayout>

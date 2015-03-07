@@ -9,27 +9,25 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
-public class ChallengeNotificationScreen extends Activity {
+public class MyProfile extends Activity {
 
-	@SuppressWarnings("null")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-		View view = null;
-		String challengeAccepted = "false"; //Toggle value based on push notification
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_challenge_notification_screen);
-		if("true" == challengeAccepted){
-			 view.setBackgroundResource(R.drawable.challenge_accepted);
-		}
-		if("false" == challengeAccepted){
-			 view.setBackgroundResource(R.drawable.challenge_refused);
-		}
+		setContentView(R.layout.activity_my_profile);
+		
+		/*
+		 * 
+		 * Show the results from the DB
+		 * Name, Challenges, Points, My Trophy Room
+		 * 
+		 */
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.challenge_notification_screen, menu);
+		getMenuInflater().inflate(R.menu.my_profile, menu);
 		return true;
 	}
 
@@ -44,12 +42,15 @@ public class ChallengeNotificationScreen extends Activity {
 		}
 		return super.onOptionsItemSelected(item);
 	}
-	public void onYesButtonClick(View view){
+	
+	public void myTrophyRoomButtonClick(View view){
 		Toast.makeText(getApplicationContext(), 
-				"Are you ready???", Toast.LENGTH_SHORT).show();	
-		//Intent challengePage = new Intent(this, ChooseChallenge.class);
-		Log.v("Main Activity", "Starting service");
+				"I want to see my Trophy Room", Toast.LENGTH_SHORT).show();	
+		Intent challengeOpponentPage = new Intent(this, MyTrophyRoom.class);
+		Log.v("Main Activity", "Navigating to choose myTrophyRoom page");
 		this.finish();
-		//startActivity(challengePage);
+		startActivity(challengeOpponentPage);
 		}
+	
+	
 }
