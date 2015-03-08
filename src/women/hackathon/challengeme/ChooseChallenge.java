@@ -68,7 +68,7 @@ public class ChooseChallenge extends ListActivity {
 			
 		builder.setPositiveButton("Know More", new DialogInterface.OnClickListener() {
 		       public void onClick(DialogInterface dialog, int id) {
-		    	   Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://javatechig.com"));
+		    	   Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://thoughts-so-random.blogspot.in"));
 		    	   startActivity(browserIntent);
 		    	   dialog.cancel();
 		       }
@@ -91,22 +91,9 @@ public class ChooseChallenge extends ListActivity {
 				Toast.LENGTH_LONG).show();
 		Intent timePage = new Intent(this, ChooseChallengeTime.class);
 		Log.v("Main Activity", "Navigating to choose challenge time page");
+		timePage.putExtra("ChallengeApp",app.packageName);
 		this.finish();
 		startActivity(timePage);
-		
-//		try {
-//			Intent intent = packageManager
-//					.getLaunchIntentForPackage(app.packageName);
-//			if (null != intent) {
-//				startActivity(intent);
-//			}
-//		} catch (ActivityNotFoundException e) {
-//			Toast.makeText(ChooseChallenge.this, e.getMessage(),
-//					Toast.LENGTH_LONG).show();
-//		} catch (Exception e) {
-//			Toast.makeText(ChooseChallenge.this, e.getMessage(),
-//					Toast.LENGTH_LONG).show();
-//		}
 	}
 
 	private List<ApplicationInfo> checkForLaunchIntent(List<ApplicationInfo> list) {
