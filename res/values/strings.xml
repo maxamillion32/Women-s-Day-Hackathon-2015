@@ -22,5 +22,11 @@
 
     <string name="title_activity_my_profile">MyProfile</string>
     <string name="title_activity_my_trophy_room">MyTrophyRoom</string>
+    <string name="title_activity_mission_accomplished">MissionAccomplished</string>
+    <string name="Trophy_Rules">Trophy Rules</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_trophies">Trophies</string>
+    <string name="title_activity_mission_failed">MissionFailed</string>
+    <string name="title_activity_challenge_me_now">ChallengeMeNow</string>
 
 </resources>

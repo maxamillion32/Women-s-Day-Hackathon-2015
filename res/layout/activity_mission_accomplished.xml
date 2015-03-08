@@ -6,14 +6,10 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="women.hackathon.challengeme.ChooseChallengeTime" >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/title_activity_choose_challenge_date" />
+    android:background="@drawable/mission_accomplished"
+    tools:context="women.hackathon.challengeme.MissionAccomplished" >
     
-     <ImageButton
+   <ImageButton
             android:id="@+id/ImageButton_next_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -21,7 +17,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="14dp"
             android:background="@drawable/next_button"
-            android:onClick="onNextButtonClick"
-            android:src="@drawable/next_button" />
-
+            android:onClick="onTrophyButtonClick"
+            android:src="@drawable/trophy_rules_button" />
+    
 </RelativeLayout>
