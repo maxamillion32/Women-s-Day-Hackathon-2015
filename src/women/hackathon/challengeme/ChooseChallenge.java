@@ -6,8 +6,6 @@ import java.util.List;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.app.ProgressDialog;
-import android.content.ActivityNotFoundException;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
@@ -38,6 +36,7 @@ public class ChooseChallenge extends ListActivity {
 		new LoadApplications().execute();
 	}
 
+	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		MenuInflater inflater = getMenuInflater();
 		inflater.inflate(R.menu.choose_challenge, menu);
@@ -45,6 +44,7 @@ public class ChooseChallenge extends ListActivity {
 		return true;
 	}
 
+	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		boolean result = true;
 
@@ -67,14 +67,16 @@ public class ChooseChallenge extends ListActivity {
 		builder.setMessage(getString(R.string.about_desc));
 			
 		builder.setPositiveButton("Know More", new DialogInterface.OnClickListener() {
-		       public void onClick(DialogInterface dialog, int id) {
+		       @Override
+			public void onClick(DialogInterface dialog, int id) {
 		    	   Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://thoughts-so-random.blogspot.in"));
 		    	   startActivity(browserIntent);
 		    	   dialog.cancel();
 		       }
 		   });
 		builder.setNegativeButton("No Thanks!", new DialogInterface.OnClickListener() {
-		       public void onClick(DialogInterface dialog, int id) {
+		       @Override
+			public void onClick(DialogInterface dialog, int id) {
 		            dialog.cancel();
 		       }
 		});

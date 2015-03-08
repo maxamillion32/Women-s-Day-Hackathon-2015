@@ -1,10 +1,12 @@
 package women.hackathon.challengeme;
 
 
+import java.util.Calendar;
+
 import android.app.Activity;
-//import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.Time;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -16,7 +18,10 @@ public class ChooseOpponent extends Activity {
 	public static String challenge;
 	public static boolean challengeAccepted = false;
 	public static int count = 0;
+	public static double duration = 3000.0;
 
+	Calendar now = Calendar.getInstance();
+	Time time = new Time();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -92,5 +97,10 @@ public class ChooseOpponent extends Activity {
 		initialize();
 		this.finish();
 		startActivity(ChallengesScreenpage);
+	}
+	
+	public void onDurationButtonClick(View view){
+		Toast.makeText(getApplicationContext(), 
+				"Duration set"+duration, Toast.LENGTH_SHORT).show();	
 	}
 }

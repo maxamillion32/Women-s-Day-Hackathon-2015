@@ -87,6 +87,23 @@
                 <action android:name="StartupReceiver_Manual_Start" />
             </intent-filter>
         </receiver>
+
+        <activity
+            android:name=".ChooseDuration"
+            android:label="@string/title_activity_choose_duration" >
+        </activity>
+        <activity
+            android:name=".MyTimePickerDialog"
+            android:label="@string/title_activity_my_time_picker_dialog" >
+        </activity>
+        <activity
+            android:name=".Results_Win"
+            android:label="@string/title_activity_results__win" >
+        </activity>
+        <activity
+            android:name=".NoResults"
+            android:label="@string/title_activity_no_results" >
+        </activity>
     </application>
 
 </manifest>

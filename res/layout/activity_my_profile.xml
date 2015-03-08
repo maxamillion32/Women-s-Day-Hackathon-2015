@@ -18,6 +18,16 @@
             android:background="@drawable/my_trophy_room"
             android:onClick="myTrophyRoomButtonClick"
             android:src="@drawable/my_trophy_room" />
-    
+
+     <ImageButton
+         android:id="@+id/ImageButton_my_results"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_above="@+id/ImageButton_my_trophy_button"
+         android:layout_alignLeft="@+id/ImageButton_my_trophy_button"
+         android:layout_marginBottom="48dp"
+         android:background="@drawable/my_results"
+         android:onClick="myResultsButtonClick"
+         android:src="@drawable/my_results" />
 
 </RelativeLayout>

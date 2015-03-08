@@ -52,5 +52,18 @@ public class MyProfile extends Activity {
 		startActivity(challengeOpponentPage);
 		}
 	
-	
+	public void myResultsButtonClick(View view){
+		if(2 == MyChallengeReceiver.challengeWon){
+		Intent noResultsPage = new Intent(this, NoResults.class);
+		startActivity(noResultsPage);
+		}
+		if(1 == MyChallengeReceiver.challengeWon){
+			Intent resultsPage = new Intent(this, Results_Win.class);
+			startActivity(resultsPage);
+		}
+		else if(0 == MyChallengeReceiver.challengeWon){
+			Intent resultsPage = new Intent(this, Results.class);
+			startActivity(resultsPage);
+		}	
+	}
 }

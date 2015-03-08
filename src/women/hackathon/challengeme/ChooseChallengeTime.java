@@ -1,3 +1,4 @@
+
 package women.hackathon.challengeme;
 
 import java.util.Calendar;
@@ -7,7 +8,6 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Process;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -70,12 +70,12 @@ public class ChooseChallengeTime extends Activity implements OnClickListener{
 	
 	public void onNextButtonClick(View view){
 		Toast.makeText(getApplicationContext(), 
-				"Now, whom do you want to challenge?", Toast.LENGTH_SHORT).show();	
-		Intent challengeOpponentPage = new Intent(this, ChooseOpponent.class);
-		Log.v("Main Activity", "Navigating to choose challengeOpponent page");
-		challengeOpponentPage.putExtra("ChallengeApp", challenge);
+				"Now, go ahead and set the duration", Toast.LENGTH_SHORT).show();	
+		Intent durationPage = new Intent(this, ChooseDuration.class);
+		Log.v("Main Activity", "Navigating to choose durationPage");
+		durationPage.putExtra("ChallengeApp", challenge);
 		this.finish();
-		startActivity(challengeOpponentPage);
+		startActivity(durationPage);
 		}
 	
 	@Override

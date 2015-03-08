@@ -1,10 +1,6 @@
 package women.hackathon.challengeme;
 
-import java.util.List;
-
 import android.app.Activity;
-import android.app.ActivityManager;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -12,7 +8,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 public class ChallengeNotificationScreen extends Activity {
@@ -36,10 +31,12 @@ public class ChallengeNotificationScreen extends Activity {
 		 * 
 		 */
 		 new CountDownTimer(30000, 1000) {
-		     public void onTick(long millisUntilFinished) {
+		     @Override
+			public void onTick(long millisUntilFinished) {
 		         Log.v("Timer countdown","seconds remaining: " + millisUntilFinished / 1000);
 		     }
-		     public void onFinish() {
+		     @Override
+			public void onFinish() {
 		         Log.v("Timer countdown","Done!");
 			         if(true == ChooseOpponent.challengeAccepted){
 			        	Toast.makeText(getApplicationContext(), 
@@ -78,7 +75,6 @@ public class ChallengeNotificationScreen extends Activity {
 			return true;
 		}
 		return super.onOptionsItemSelected(item);
-
 	}
 
 
