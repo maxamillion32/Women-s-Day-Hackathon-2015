@@ -1,7 +1,13 @@
 package women.hackathon.challengeme;
 
+import java.util.List;
+
 import android.app.Activity;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -12,33 +18,53 @@ import android.widget.Toast;
 public class ChallengeNotificationScreen extends Activity {
 
 	View root;
+	String challenge;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		//View view = null;
 		String challengeAccepted = "false"; //Toggle value based on push notification
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_challenge_notification_screen);
-		
-	    root = findViewById(R.layout.activity_challenge_notification_screen);
-
+		setContentView(R.layout.activity_challenge_notification_screen);	    
+	    Intent challengeTimePage = getIntent();
+		challenge = challengeTimePage.getStringExtra("ChallengeApp");
+		Toast.makeText(ChallengeNotificationScreen.this,"Got it: "+challenge,
+				Toast.LENGTH_LONG).show();
 		/*
 		 * 
 		 * If notification value received from server is Accepted, then open Challenge Accepted screen
 		 * else open Challenge Refused Screen
 		 * 
 		 */
+		 new CountDownTimer(30000, 1000) {
+		     public void onTick(long millisUntilFinished) {
+		         Log.v("Timer countdown","seconds remaining: " + millisUntilFinished / 1000);
+		     }
+		     public void onFinish() {
+		         Log.v("Timer countdown","Done!");
+			         if(true == ChooseOpponent.challengeAccepted){
+			        	Toast.makeText(getApplicationContext(), 
+					 				"Your friend has accepted the challenge. Are you ready???", Toast.LENGTH_SHORT).show();	
+			 			//starting service here
+			 			Intent serviceIntent = new Intent(ChallengeNotificationScreen.this,MyChallengeService.class);
+			 			serviceIntent.putExtra("ChallengeName", challenge);
+			 			startService(serviceIntent);
+			 			Log.v("Main Activity", "Starting service");
+			 			Toast.makeText(getApplicationContext(), 
+			 					"Starting service", Toast.LENGTH_SHORT).show();
+			 		}
+			 		else if(false == ChooseOpponent.challengeAccepted){
+			 			Log.v("Main Activity", "Waiting for opponent to accept challenge");
+			 			Toast.makeText(getApplicationContext(), 
+			 					"Will notify you when the challenge is accepted", Toast.LENGTH_SHORT).show();	
+			 			ChallengeNotificationScreen.this.finish();
+			 		} 
+		     }
+		  }.start();
 		
-//		if("true" == challengeAccepted){
-//			 view.setBackgroundResource(R.drawable.challenge_accepted);
-//		}
-//		if("false" == challengeAccepted){
-//			 view.setBackgroundResource(R.drawable.challenge_refused);
-//		}
 	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.challenge_notification_screen, menu);
 		return true;
 		
@@ -46,51 +72,19 @@ public class ChallengeNotificationScreen extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		// Handle action bar item clicks here. The action bar will
-		// automatically handle clicks on the Home/Up button, so long
-		// as you specify a parent activity in AndroidManifest.xml.
-		switch (item.getItemId()) {
-		case R.id.Challenge_accepted:
-			Log.v("Main Activity", "Challenge Accepted");
-			//root.setBackgroundColor(getResources().getColor(R.color.red));
-			//root.setBackgroundResource(R.drawable.challenge_accepted);
-			Toast.makeText(getApplicationContext(), 
-					"Challenge Accepted", Toast.LENGTH_SHORT).show();	
-			//changeBackground(true);
-			return true;
-		case R.id.Challenge_refused:
-			Log.v("Main Activity", "Challenge Refused");
-			//changeBackground(false);
-			Toast.makeText(getApplicationContext(), 
-					"Challenge Refused", Toast.LENGTH_SHORT).show();	
-			//root.setBackgroundResource(R.drawable.challenge_accepted);
-			return true;
-		default:
-			return super.onOptionsItemSelected(item);
-		}
-		/*if (id == R.id.action_settings) {
+
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
 			return true;
 		}
-		return super.onOptionsItemSelected(item);*/
-//	}
-//	private void changeBackground(boolean b) {
-//
-//		if(true==b){
-//			ImageView root = (ImageView) findViewById(R.id.Challenge_accepted);
-//			root.setBackground(getWallpaper());
-//		}
-//		else if(false==b){
-//			ImageView root = (ImageView) findViewById(R.id.Challenge_refused);
-//			root.setBackground(getWallpaper());
-//		}
+		return super.onOptionsItemSelected(item);
+
 	}
+
 
 	public void onAlrightButtonClick(View view){
 		Toast.makeText(getApplicationContext(), 
 				"Are you ready???", Toast.LENGTH_SHORT).show();	
-		//Intent challengePage = new Intent(this, ChooseChallenge.class);
-		Log.v("Main Activity", "Starting service");
 		this.finish();
-		//startActivity(challengePage);
 		}
 }

@@ -9,5 +9,4 @@
     android:background="@drawable/my_trophy_page"
     tools:context="women.hackathon.challengeme.MyTrophyRoom" >
 
-
 </RelativeLayout>

@@ -8,6 +8,8 @@
         android:minSdkVersion="14"
         android:targetSdkVersion="21" />
 
+    <uses-permission android:name="android.permission.GET_TASKS" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -54,6 +56,37 @@
             android:name=".MyTrophyRoom"
             android:label="@string/title_activity_my_trophy_room" >
         </activity>
+
+        <service
+            android:name=".MyChallengeService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
+
+        <activity
+            android:name=".MissionAccomplished"
+            android:label="@string/title_activity_mission_accomplished" >
+        </activity>
+        <activity
+            android:name=".Trophies"
+            android:label="@string/title_activity_trophies" >
+        </activity>
+        <activity
+            android:name=".MissionFailed"
+            android:label="@string/title_activity_mission_failed" >
+        </activity>
+
+        <receiver
+            android:name=".MyChallengeReceiver"
+            android:enabled="true"
+            android:exported="true" >
+        </receiver>
+        <receiver android:name=".StartupReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="StartupReceiver_Manual_Start" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
